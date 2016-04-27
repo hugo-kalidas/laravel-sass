@@ -47,12 +47,18 @@ class SassCompiler
             $file_path_elements = pathinfo($file_path);
             // get file's name without extension
             $file_name = $file_path_elements['filename'];
-            // get .scss's content, put it into $string_sass
-            $string_sass = file_get_contents($scss_folder . $file_name . ".scss");
-            // compile this Sass code to CSS
-            $string_css = $scss_compiler->compile($string_sass);
-            // write CSS into file with the same filename, but .css extension
-            file_put_contents($css_folder . $file_name . ".css", $string_css);
+            
+            $in = $scss_folder . $file_name . ".scss";
+            $out = $css_folder . $file_name . ".css";
+   
+            if (! is_file($out) || filemtime($in) > filemtime($out)) {
+                // get .scss's content, put it into $string_sass
+                $string_sass = file_get_contents($in);
+                // compile this Sass code to CSS
+                $string_css = $scss_compiler->compile($string_sass);
+                // write CSS into file with the same filename, but .css extension
+                file_put_contents($out);
+            }
         }
 
     }
