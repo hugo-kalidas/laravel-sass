@@ -1,5 +1,5 @@
 {
-    "name": "panique/laravel-sass",
+    "name": "hugo-kalidas/laravel-sass",
     "type": "library",
     "description": "Compiles your Sass .scss files to .css every time you run your app (in development)",
     "keywords": ["sass", "scss", "css"],
