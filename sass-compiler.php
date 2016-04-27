@@ -57,7 +57,7 @@ class SassCompiler
                 // compile this Sass code to CSS
                 $string_css = $scss_compiler->compile($string_sass);
                 // write CSS into file with the same filename, but .css extension
-                file_put_contents($out);
+                file_put_contents($out,$string_css);
             }
         }
 
