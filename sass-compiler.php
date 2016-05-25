@@ -57,7 +57,7 @@ class SassCompiler
             $file_destination_dir = str_replace($scss_folder, $css_folder, $file_dir);
 
             $in = $file_dir . '/' . $file_name . ".scss";
-            $out = $file_destination_dir . $file_name . ".css";
+            $out = $file_destination_dir . '/' . $file_name . ".css";
 
             if (!is_dir($file_destination_dir)) {
                 mkdir($file_destination_dir, 0777, true);
