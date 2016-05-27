@@ -33,6 +33,8 @@ class SassCompiler
     static public function run($scss_folder, $css_folder, $format_style = "scss_formatter")
     {
         $start = microtime(true);
+        $scss_folder = rtrim($scss_folder, '/');
+        $css_folder = rtrim($css_folder, '/');
         // scssc will be loaded automatically via Composer
         $scss_compiler = new scssc();
         // set the path where your _mixins are
